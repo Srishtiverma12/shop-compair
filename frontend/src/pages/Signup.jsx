@@ -17,7 +17,7 @@ const Signup = () => {
     try {
       await axios.post(`${API_URL}/api/auth/signup`, form);
       toast.success('Account created! Check your email for OTP.');
-      navigate('/verify-otp', { state: { email: form.email } });
+      navigate('/login');
     } catch (err) {
       toast.error(err.response?.data?.message || 'Signup failed');
     } finally {
