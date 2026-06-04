@@ -1,165 +1,176 @@
 <div align="center">
-🛍️ Shop-Compair
-Smart Price Comparison Platform
-Compare prices across Amazon, Flipkart, Myntra, Nykaa & more — instantly!
-Show Image
-Show Image
-Show Image
-Show Image Show Image Show Image
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=32&pause=1000&color=7C3AED&center=true&vCenter=true&width=600&lines=🛍️+Shop-Compair;Smart+Price+Comparison;Find+Best+Deals+Instantly!" alt="Typing SVG" />
 </div>
 
-🌐 Live Links
-ServiceURL🎯 Frontend (Live Demo)shop-compair.vercel.app⚙️ Backend APIshop-compair.onrender.com📦 GitHub Repositorygithub.com/Srishtiverma12/shop-compair
+<div align="center">
 
-✨ Features
+[![Live Demo](https://img.shields.io/badge/🚀%20Live%20Demo-Visit%20Site-7c3aed?style=for-the-badge&logoColor=white)](https://shop-compair.vercel.app)
+[![Backend API](https://img.shields.io/badge/⚙️%20Backend%20API-Render-10b981?style=for-the-badge)](https://shop-compair.onrender.com)
+[![GitHub Repo](https://img.shields.io/badge/📦%20GitHub-Repository-181717?style=for-the-badge&logo=github)](https://github.com/Srishtiverma12/shop-compair)
 
-🔍 Smart Price Comparison — Paste any product URL and compare prices across platforms
-🛒 Multi-Platform Support — Amazon, Flipkart, Myntra, Nykaa & more
-❤️ Wishlist — Save products and track best deals
-📊 Comparison History — View all your past comparisons
-🔐 Secure Auth — JWT-based login & signup
-👤 User Profile — Manage your account and settings
-📱 Responsive Design — Works on all devices
-🌙 Dark UI — Modern dark themed interface
+<br/>
 
+![React](https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=node.js&logoColor=white)
+![Express](https://img.shields.io/badge/Express-000000?style=flat-square&logo=express&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white)
+![Vercel](https://img.shields.io/badge/Vercel-000000?style=flat-square&logo=vercel&logoColor=white)
+![Render](https://img.shields.io/badge/Render-46E3B7?style=flat-square&logo=render&logoColor=white)
 
-🛠️ Tech Stack
-Frontend
-TechnologyUsage⚛️ React 18UI Framework⚡ ViteBuild Tool🔀 React Router v6Client-side Routing📡 AxiosHTTP Requests🔔 React Hot ToastNotifications🎨 CSS-in-JSInline Styling
-Backend
-TechnologyUsage🟢 Node.jsRuntime🚂 Express.jsWeb Framework🐘 PostgreSQLDatabase🔑 JWTAuthentication🔒 bcryptjsPassword Hashing🌐 CORSCross-Origin Requests🕷️ ScraperAPIProduct Data Scraping
-Deployment
-ServicePurpose🔺 VercelFrontend Hosting🎨 RenderBackend Hosting🐘 Render PostgreSQLDatabase Hosting🐙 GitHubVersion Control
+</div>
 
-📁 Project Structure
+---
+
+## 🌟 What is Shop-Compair?
+
+**Shop-Compair** is a full-stack web app that lets you **compare product prices across multiple e-commerce platforms in seconds.** Just paste a product URL — Amazon, Flipkart, Myntra, Nykaa — and instantly see the best deal.
+
+> 💡 Stop overpaying. Start comparing.
+
+---
+
+## 🔗 Live Links
+
+| 🔗 | Link |
+|---|------|
+| 🎯 **Live App** | https://shop-compair.vercel.app |
+| ⚙️ **Backend API** | https://shop-compair.onrender.com |
+| 💻 **Source Code** | https://github.com/Srishtiverma12/shop-compair |
+
+---
+
+## ✨ Key Features
+
+| Feature | Description |
+|---------|-------------|
+| 🔍 **Instant Comparison** | Paste any product URL and compare across platforms |
+| 🏆 **Best Deal Highlight** | Automatically shows the cheapest option |
+| ❤️ **Wishlist** | Save products and monitor prices |
+| 📊 **History** | Track all your past comparisons |
+| 🔐 **Secure Auth** | JWT-based authentication |
+| 👤 **Profile Management** | Update name, phone, password |
+| 📱 **Fully Responsive** | Works on mobile, tablet, desktop |
+| 🌙 **Dark Mode UI** | Sleek modern dark interface |
+
+---
+
+## 🛠️ Tech Stack
+
+### 🖥️ Frontend
+React 18        →  UI Framework
+Vite            →  Lightning fast build tool
+React Router v6 →  Client-side navigation
+Axios           →  API communication
+React Hot Toast →  Beautiful notifications
+
+### ⚙️ Backend
+Node.js         →  Runtime environment
+Express.js      →  REST API framework
+PostgreSQL       →  Relational database
+JWT             →  Authentication tokens
+bcryptjs        →  Password encryption
+ScraperAPI      →  Product data scraping
+
+### ☁️ Deployment
+Vercel          →  Frontend hosting
+Render          →  Backend + Database hosting
+GitHub          →  Version control & CI/CD
+
+---
+
+## 📁 Folder Structure
 shop-compair/
-├── frontend/                  # React + Vite App
-│   ├── src/
-│   │   ├── pages/
-│   │   │   ├── Login.jsx
-│   │   │   ├── Signup.jsx
-│   │   │   ├── Dashboard.jsx
-│   │   │   ├── Compare.jsx
-│   │   │   ├── Settings.jsx
-│   │   │   ├── ForgotPassword.jsx
-│   │   │   └── ResetPassword.jsx
-│   │   ├── components/
-│   │   │   ├── Navbar.jsx
-│   │   │   └── Footer.jsx
-│   │   ├── context/
-│   │   │   └── AuthContext.jsx
-│   │   └── api.js
-│   └── package.json
 │
-└── backend/                   # Node.js + Express API
-    ├── controllers/
-    │   ├── authController.js
-    │   ├── productController.js
-    │   └── userController.js
-    ├── routes/
-    │   ├── authRoutes.js
-    │   ├── productRoutes.js
-    │   └── userRoutes.js
-    ├── config/
-    │   └── db.js
-    ├── utils/
-    │   └── emailService.js
-    └── server.js
+├── 📂 frontend/
+│   └── src/
+│       ├── pages/          # Login, Signup, Dashboard, Compare, Settings
+│       ├── components/     # Navbar, Footer
+│       ├── context/        # AuthContext (global state)
+│       └── api.js          # Base API URL config
+│
+└── 📂 backend/
+├── controllers/        # Auth, Product, User logic
+├── routes/             # API route definitions
+├── config/             # Database connection
+├── utils/              # Email service
+└── server.js           # Entry point
 
-🚀 Getting Started Locally
-Prerequisites
+---
 
-Node.js v18+
-PostgreSQL
-Git
+## 🚀 Run Locally
 
-1. Clone the Repository
-bashgit clone https://github.com/Srishtiverma12/shop-compair.git
+```bash
+# 1. Clone the repo
+git clone https://github.com/Srishtiverma12/shop-compair.git
 cd shop-compair
-2. Backend Setup
-bashcd backend
+
+# 2. Backend setup
+cd backend
 npm install
-Create .env file in backend/:
-envPORT=5000
+# Create .env file with your credentials
+node server.js
+
+# 3. Frontend setup (new terminal)
+cd frontend
+npm install
+npm run dev
+```
+
+**Backend `.env`**
+```env
+PORT=5000
 DB_HOST=localhost
 DB_USER=your_db_user
 DB_PASSWORD=your_db_password
 DB_NAME=shopcompair
 DB_PORT=5432
-JWT_SECRET=your_jwt_secret
-EMAIL_USER=your@gmail.com
-EMAIL_PASS=your_app_password
-SCRAPER_API_KEY=your_scraper_api_key
+JWT_SECRET=your_secret_key
+SCRAPER_API_KEY=your_scraper_key
 FRONTEND_URL=http://localhost:5173
-bashnode server.js
-3. Frontend Setup
-bashcd frontend
-npm install
-Create .env file in frontend/:
-envVITE_API_URL=http://localhost:5000
-bashnpm run dev
-4. Database Setup
-Run these SQL commands in PostgreSQL:
-sqlCREATE TABLE users (
-  id SERIAL PRIMARY KEY,
-  name VARCHAR(100) NOT NULL,
-  email VARCHAR(150) UNIQUE NOT NULL,
-  phone VARCHAR(20),
-  password TEXT NOT NULL,
-  profile_pic TEXT,
-  is_verified BOOLEAN DEFAULT TRUE,
-  otp VARCHAR(10),
-  otp_expires TIMESTAMP,
-  created_at TIMESTAMP DEFAULT NOW()
-);
+```
 
-CREATE TABLE comparisons (
-  id SERIAL PRIMARY KEY,
-  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
-  product_url TEXT NOT NULL,
-  product_name TEXT,
-  product_image TEXT,
-  results JSONB,
-  created_at TIMESTAMP DEFAULT NOW()
-);
+**Frontend `.env`**
+```env
+VITE_API_URL=http://localhost:5000
+```
 
-CREATE TABLE wishlist (
-  id SERIAL PRIMARY KEY,
-  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
-  product_name TEXT NOT NULL,
-  product_image TEXT,
-  best_price NUMERIC,
-  best_platform VARCHAR(50),
-  product_url TEXT,
-  created_at TIMESTAMP DEFAULT NOW()
-);
+---
 
-📡 API Endpoints
-Auth Routes /api/auth
-MethodEndpointDescriptionPOST/signupRegister new userPOST/loginLogin userPOST/forgot-passwordRequest password resetPOST/reset-passwordReset password
-Product Routes /api/product
-MethodEndpointDescriptionPOST/compareCompare product pricesGET/historyGet comparison historyPOST/wishlistAdd to wishlistGET/wishlistGet wishlistDELETE/wishlist/:idRemove from wishlist
-User Routes /api/user
-MethodEndpointDescriptionPUT/profileUpdate profilePUT/change-passwordChange passwordDELETE/delete-accountDelete account
+## 📡 API Reference
+POST   /api/auth/signup          →  Register user
+POST   /api/auth/login           →  Login user
+POST   /api/auth/forgot-password →  Forgot password
+POST   /api/auth/reset-password  →  Reset password
+POST   /api/product/compare      →  Compare product prices
+GET    /api/product/history      →  Get comparison history
+POST   /api/product/wishlist     →  Add to wishlist
+GET    /api/product/wishlist     →  Get wishlist
+DELETE /api/product/wishlist/:id →  Remove from wishlist
+PUT    /api/user/profile         →  Update profile
+PUT    /api/user/change-password →  Change password
+DELETE /api/user/delete-account  →  Delete account
 
-🌍 Deployment
-Frontend — Vercel
-Root Directory: frontend
-Build Command: npm run build
-Output Directory: dist
-Environment Variable: VITE_API_URL = https://shop-compair.onrender.com
-Backend — Render
-Root Directory: backend
-Build Command: npm install
-Start Command: node server.js
+---
 
-👩‍💻 Developer
+## 👩‍💻 Developer
+
 <div align="center">
-Srishti Verma
-Show Image
+
+### Srishti Verma
+
+[![GitHub](https://img.shields.io/badge/GitHub-Srishtiverma12-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Srishtiverma12)
+
+*Full Stack Developer | React • Node.js • PostgreSQL*
+
 </div>
 
+---
+
 <div align="center">
-⭐ If you liked my project do give a star! ⭐
-Made with ❤️ by Srishti Verma
+
+**If you found this helpful, please ⭐ star the repository!**
+
+*Made with 💜 by Srishti Verma*
+
 </div>
