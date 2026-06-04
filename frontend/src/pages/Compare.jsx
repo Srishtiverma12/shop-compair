@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
+import API_URL from '../api';
 import toast from 'react-hot-toast';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -27,7 +28,7 @@ const Compare = () => {
     try {
       const token = localStorage.getItem('token');
       const headers = token ? { Authorization: 'Bearer ' + token } : {};
-      const res = await axios.post('http://localhost:5000/api/product/compare', { url: compareUrl }, { headers });
+      const res = await axios.post(`${API_URL}/api/product/compare`, { url: compareUrl }, { headers });
       setResults(res.data);
       toast.success('Comparison complete!');
     } catch (err) {
@@ -43,7 +44,7 @@ const Compare = () => {
     if (!token) { toast.error('Please login to save to wishlist'); return; }
     try {
       const best = results.comparisons[0];
-      await axios.post('http://localhost:5000/api/product/wishlist', {
+      await axios.post(`${API_URL}/api/product/wishlist`, {
         product_name: results.product,
         product_image: results.image,
         best_price: best.price,
@@ -60,7 +61,6 @@ const Compare = () => {
     <div style={{ background: '#0a0a0f', minHeight: '100vh', fontFamily: 'Inter, sans-serif' }}>
       <Navbar />
 
-      {/* Header */}
       <div style={{
         padding: '60px 24px 80px',
         background: 'linear-gradient(135deg, #0d0820, #130d2e)',
@@ -98,7 +98,6 @@ const Compare = () => {
             Paste any product URL to find the best deal across all platforms
           </p>
 
-          {/* Search */}
           <div style={{
             background: focused ? 'rgba(139,92,246,0.08)' : 'rgba(22,22,31,0.9)',
             border: focused ? '1px solid rgba(139,92,246,0.5)' : '1px solid rgba(139,92,246,0.2)',
@@ -142,12 +141,10 @@ const Compare = () => {
         </div>
       </div>
 
-      {/* Results */}
       <div style={{ maxWidth:'1200px', margin:'0 auto', padding:'48px 24px 80px' }}>
 
-        {/* Loading */}
         {loading && (
-          <div style={{ textAlign:'center', padding:'80px', animation:'fadeIn 0.5s ease' }}>
+          <div style={{ textAlign:'center', padding:'80px' }}>
             <div style={{
               width:'60px', height:'60px',
               border:'3px solid rgba(139,92,246,0.2)',
@@ -165,11 +162,8 @@ const Compare = () => {
           </div>
         )}
 
-        {/* Results */}
         {results && !loading && (
-          <div style={{ animation:'fadeInUp 0.5s ease' }}>
-
-            {/* Product Header */}
+          <div>
             <div style={{
               background:'#16161f',
               border:'1px solid rgba(139,92,246,0.15)',
@@ -209,13 +203,11 @@ const Compare = () => {
                 color:'#a78bfa', padding:'10px 20px',
                 borderRadius:'10px', fontSize:'13px', fontWeight:'600',
                 cursor:'pointer', display:'flex', alignItems:'center', gap:'6px',
-                transition:'all 0.2s ease',
               }}>
                 ❤️ Save to Wishlist
               </button>
             </div>
 
-            {/* Cards */}
             {results.comparisons.length > 0 ? (
               <div style={{
                 display:'grid',
@@ -230,18 +222,10 @@ const Compare = () => {
                     position:'relative',
                     boxShadow: index === 0 ? '0 8px 32px rgba(139,92,246,0.15)' : 'none',
                     transition:'all 0.3s ease',
-                    animation:`fadeInUp 0.5s ease ${index * 0.1}s both`,
                   }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.transform = 'translateY(-4px)';
-                      e.currentTarget.style.borderColor = 'rgba(139,92,246,0.4)';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.transform = 'translateY(0)';
-                      e.currentTarget.style.borderColor = index === 0 ? 'rgba(139,92,246,0.4)' : 'rgba(139,92,246,0.1)';
-                    }}
+                    onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.borderColor = 'rgba(139,92,246,0.4)'; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.borderColor = index === 0 ? 'rgba(139,92,246,0.4)' : 'rgba(139,92,246,0.1)'; }}
                   >
-                    {/* Best Deal Badge */}
                     {index === 0 && (
                       <div style={{
                         position:'absolute', top:'-12px', left:'50%',
@@ -250,13 +234,11 @@ const Compare = () => {
                         color:'white', padding:'4px 16px',
                         borderRadius:'100px', fontSize:'11px', fontWeight:'700',
                         whiteSpace:'nowrap', boxShadow:'0 4px 12px rgba(139,92,246,0.4)',
-                        letterSpacing:'0.5px',
                       }}>
                         🏆 BEST DEAL
                       </div>
                     )}
 
-                    {/* Platform Badge */}
                     <div style={{ display:'flex', justifyContent:'space-between', alignItems:'center', marginBottom:'16px' }}>
                       <span style={{
                         background:'rgba(139,92,246,0.12)',
@@ -274,7 +256,6 @@ const Compare = () => {
                       </span>
                     </div>
 
-                    {/* Image */}
                     {result.image && (
                       <div style={{
                         background:'rgba(139,92,246,0.05)',
@@ -291,7 +272,6 @@ const Compare = () => {
                       </div>
                     )}
 
-                    {/* Name */}
                     <h3 style={{
                       fontSize:'14px', fontWeight:'500', color:'#d4d4e8',
                       marginBottom:'16px', lineHeight:'1.5',
@@ -299,7 +279,6 @@ const Compare = () => {
                       WebkitBoxOrient:'vertical', overflow:'hidden',
                     }}>{result.name}</h3>
 
-                    {/* Price */}
                     <div style={{
                       background:'rgba(139,92,246,0.06)',
                       border:'1px solid rgba(139,92,246,0.12)',
@@ -321,7 +300,6 @@ const Compare = () => {
                       )}
                     </div>
 
-                    {/* Details */}
                     <div style={{ display:'flex', flexDirection:'column', gap:'8px', marginBottom:'16px' }}>
                       {result.seller && (
                         <div style={{ display:'flex', justifyContent:'space-between', fontSize:'12px' }}>
@@ -343,12 +321,9 @@ const Compare = () => {
                       )}
                     </div>
 
-                    {/* Button */}
                     <a href={result.url} target="_blank" rel="noreferrer" style={{
                       display:'block', textAlign:'center',
-                      background: index === 0
-                        ? 'linear-gradient(135deg, #8b5cf6, #6d28d9)'
-                        : 'rgba(139,92,246,0.08)',
+                      background: index === 0 ? 'linear-gradient(135deg, #8b5cf6, #6d28d9)' : 'rgba(139,92,246,0.08)',
                       color: index === 0 ? 'white' : '#a78bfa',
                       border: index === 0 ? 'none' : '1px solid rgba(139,92,246,0.2)',
                       padding:'11px', borderRadius:'10px',
@@ -370,9 +345,8 @@ const Compare = () => {
           </div>
         )}
 
-        {/* Empty State */}
         {!results && !loading && (
-          <div style={{ textAlign:'center', padding:'80px', animation:'fadeIn 0.5s ease' }}>
+          <div style={{ textAlign:'center', padding:'80px' }}>
             <div style={{
               width:'80px', height:'80px',
               background:'rgba(139,92,246,0.08)',

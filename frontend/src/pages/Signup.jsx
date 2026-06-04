@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import API_URL from '../api';
 import toast from 'react-hot-toast';
 
 const Signup = () => {
@@ -14,7 +15,7 @@ const Signup = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      await axios.post('http://localhost:5000/api/auth/signup', form);
+      await axios.post(`${API_URL}/api/auth/signup`, form);
       toast.success('Account created! Check your email for OTP.');
       navigate('/verify-otp', { state: { email: form.email } });
     } catch (err) {
@@ -64,53 +65,22 @@ const Signup = () => {
         <form onSubmit={handleSubmit}>
           <div style={{ marginBottom: '20px' }}>
             <label style={{ display: 'block', fontSize: '14px', fontWeight: '600', color: '#374151', marginBottom: '8px' }}>Full Name</label>
-            <input
-              type="text"
-              name="name"
-              value={form.name}
-              onChange={handleChange}
-              placeholder="Your full name"
-              required
-              style={inputStyle}
-            />
+            <input type="text" name="name" value={form.name} onChange={handleChange} placeholder="Your full name" required style={inputStyle} />
           </div>
 
           <div style={{ marginBottom: '20px' }}>
             <label style={{ display: 'block', fontSize: '14px', fontWeight: '600', color: '#374151', marginBottom: '8px' }}>Email</label>
-            <input
-              type="email"
-              name="email"
-              value={form.email}
-              onChange={handleChange}
-              placeholder="your@email.com"
-              required
-              style={inputStyle}
-            />
+            <input type="email" name="email" value={form.email} onChange={handleChange} placeholder="your@email.com" required style={inputStyle} />
           </div>
 
           <div style={{ marginBottom: '20px' }}>
             <label style={{ display: 'block', fontSize: '14px', fontWeight: '600', color: '#374151', marginBottom: '8px' }}>Phone (optional)</label>
-            <input
-              type="tel"
-              name="phone"
-              value={form.phone}
-              onChange={handleChange}
-              placeholder="+91 XXXXXXXXXX"
-              style={inputStyle}
-            />
+            <input type="tel" name="phone" value={form.phone} onChange={handleChange} placeholder="+91 XXXXXXXXXX" style={inputStyle} />
           </div>
 
           <div style={{ marginBottom: '28px' }}>
             <label style={{ display: 'block', fontSize: '14px', fontWeight: '600', color: '#374151', marginBottom: '8px' }}>Password</label>
-            <input
-              type="password"
-              name="password"
-              value={form.password}
-              onChange={handleChange}
-              placeholder="Min 6 characters"
-              required
-              style={inputStyle}
-            />
+            <input type="password" name="password" value={form.password} onChange={handleChange} placeholder="Min 6 characters" required style={inputStyle} />
           </div>
 
           <button
@@ -123,6 +93,7 @@ const Signup = () => {
               fontSize: '16px', fontWeight: '700',
               cursor: loading ? 'not-allowed' : 'pointer',
               opacity: loading ? 0.7 : 1,
+              border: 'none',
             }}
           >
             {loading ? 'Creating Account...' : 'Create Account'}

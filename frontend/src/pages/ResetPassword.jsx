@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
+import API_URL from '../api';
 import toast from 'react-hot-toast';
 
 const ResetPassword = () => {
@@ -20,7 +21,7 @@ const ResetPassword = () => {
     }
     setLoading(true);
     try {
-      await axios.post('http://localhost:5000/api/auth/reset-password', {
+      await axios.post(`${API_URL}/api/auth/reset-password`, {
         email,
         otp: form.otp,
         newPassword: form.newPassword,
@@ -132,6 +133,7 @@ const ResetPassword = () => {
               fontSize: '16px', fontWeight: '700',
               cursor: loading ? 'not-allowed' : 'pointer',
               opacity: loading ? 0.7 : 1,
+              border: 'none',
             }}
           >
             {loading ? 'Resetting...' : 'Reset Password'}

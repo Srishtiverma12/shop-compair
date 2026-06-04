@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import API_URL from '../api';
 import toast from 'react-hot-toast';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -24,7 +25,7 @@ const Settings = () => {
     setLoading(true);
     try {
       await axios.put(
-        'http://localhost:5000/api/user/profile',
+        `${API_URL}/api/user/profile`,
         profile,
         { headers: { Authorization: 'Bearer ' + token } }
       );
@@ -46,7 +47,7 @@ const Settings = () => {
     setLoading(true);
     try {
       await axios.put(
-        'http://localhost:5000/api/user/change-password',
+        `${API_URL}/api/user/change-password`,
         { oldPassword: passwords.oldPassword, newPassword: passwords.newPassword },
         { headers: { Authorization: 'Bearer ' + token } }
       );
@@ -62,7 +63,7 @@ const Settings = () => {
   const handleDeleteAccount = async () => {
     if (!window.confirm('Are you sure? This cannot be undone.')) return;
     try {
-      await axios.delete('http://localhost:5000/api/user/delete-account', {
+      await axios.delete(`${API_URL}/api/user/delete-account`, {
         headers: { Authorization: 'Bearer ' + token },
       });
       toast.success('Account deleted');
@@ -112,14 +113,10 @@ const Settings = () => {
       <div style={{ maxWidth: '800px', margin: '0 auto', padding: '48px 24px' }}>
 
         <div style={{
-          display: 'flex',
-          gap: '8px',
-          background: '#f9f6f0',
-          padding: '6px',
-          borderRadius: '14px',
-          width: 'fit-content',
-          marginBottom: '36px',
-          flexWrap: 'wrap',
+          display: 'flex', gap: '8px',
+          background: '#f9f6f0', padding: '6px',
+          borderRadius: '14px', width: 'fit-content',
+          marginBottom: '36px', flexWrap: 'wrap',
         }}>
           <button style={tabStyle('profile')} onClick={() => setActiveTab('profile')}>Profile</button>
           <button style={tabStyle('password')} onClick={() => setActiveTab('password')}>Password</button>
@@ -128,10 +125,8 @@ const Settings = () => {
 
         {activeTab === 'profile' && (
           <div style={{
-            background: 'white',
-            borderRadius: '20px',
-            padding: '36px',
-            border: '1px solid #e5e7eb',
+            background: 'white', borderRadius: '20px',
+            padding: '36px', border: '1px solid #e5e7eb',
             boxShadow: '0 4px 24px rgba(0,0,0,0.05)',
           }}>
             <h2 style={{ fontSize: '20px', fontWeight: '700', color: '#1e1b4b', marginBottom: '28px' }}>
@@ -139,13 +134,9 @@ const Settings = () => {
             </h2>
 
             <div style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '20px',
-              marginBottom: '32px',
-              padding: '20px',
-              background: '#f9f6f0',
-              borderRadius: '16px',
+              display: 'flex', alignItems: 'center', gap: '20px',
+              marginBottom: '32px', padding: '20px',
+              background: '#f9f6f0', borderRadius: '16px',
             }}>
               <div style={{
                 width: '72px', height: '72px',
@@ -211,7 +202,7 @@ const Settings = () => {
                   color: 'white', padding: '14px 32px',
                   borderRadius: '12px', fontSize: '15px', fontWeight: '700',
                   cursor: loading ? 'not-allowed' : 'pointer',
-                  opacity: loading ? 0.7 : 1,
+                  opacity: loading ? 0.7 : 1, border: 'none',
                 }}
               >
                 {loading ? 'Saving...' : 'Save Changes'}
@@ -222,10 +213,8 @@ const Settings = () => {
 
         {activeTab === 'password' && (
           <div style={{
-            background: 'white',
-            borderRadius: '20px',
-            padding: '36px',
-            border: '1px solid #e5e7eb',
+            background: 'white', borderRadius: '20px',
+            padding: '36px', border: '1px solid #e5e7eb',
             boxShadow: '0 4px 24px rgba(0,0,0,0.05)',
           }}>
             <h2 style={{ fontSize: '20px', fontWeight: '700', color: '#1e1b4b', marginBottom: '28px' }}>
@@ -283,7 +272,7 @@ const Settings = () => {
                   color: 'white', padding: '14px 32px',
                   borderRadius: '12px', fontSize: '15px', fontWeight: '700',
                   cursor: loading ? 'not-allowed' : 'pointer',
-                  opacity: loading ? 0.7 : 1,
+                  opacity: loading ? 0.7 : 1, border: 'none',
                 }}
               >
                 {loading ? 'Changing...' : 'Change Password'}
@@ -294,10 +283,8 @@ const Settings = () => {
 
         {activeTab === 'danger' && (
           <div style={{
-            background: 'white',
-            borderRadius: '20px',
-            padding: '36px',
-            border: '2px solid #fee2e2',
+            background: 'white', borderRadius: '20px',
+            padding: '36px', border: '2px solid #fee2e2',
             boxShadow: '0 4px 24px rgba(0,0,0,0.05)',
           }}>
             <h2 style={{ fontSize: '20px', fontWeight: '700', color: '#991b1b', marginBottom: '12px' }}>
@@ -312,7 +299,7 @@ const Settings = () => {
                 background: 'linear-gradient(135deg, #ef4444, #dc2626)',
                 color: 'white', padding: '14px 32px',
                 borderRadius: '12px', fontSize: '15px', fontWeight: '700',
-                cursor: 'pointer',
+                cursor: 'pointer', border: 'none',
               }}
             >
               Delete My Account
@@ -320,7 +307,6 @@ const Settings = () => {
           </div>
         )}
       </div>
-
       <Footer />
     </div>
   );

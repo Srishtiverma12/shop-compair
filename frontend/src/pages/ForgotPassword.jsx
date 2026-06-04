@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import API_URL from '../api';
 import toast from 'react-hot-toast';
 
 const ForgotPassword = () => {
@@ -12,7 +13,7 @@ const ForgotPassword = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      await axios.post('http://localhost:5000/api/auth/forgot-password', { email });
+      await axios.post(`${API_URL}/api/auth/forgot-password`, { email });
       toast.success('OTP sent to your email!');
       navigate('/reset-password', { state: { email } });
     } catch (err) {
@@ -86,6 +87,7 @@ const ForgotPassword = () => {
               fontSize: '16px', fontWeight: '700',
               cursor: loading ? 'not-allowed' : 'pointer',
               opacity: loading ? 0.7 : 1,
+              border: 'none',
             }}
           >
             {loading ? 'Sending OTP...' : 'Send OTP'}
