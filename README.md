@@ -1,6 +1,5 @@
-<div align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=32&pause=1000&color=7C3AED&center=true&vCenter=true&width=600&lines=🛍️+Shop-Compair;Smart+Price+Comparison;Find+Best+Deals+Instantly!" alt="Typing SVG" />
-</div>
+# 🛍️ Shop-Compair
+### Smart Price Comparison — Find Best Deals Instantly!
 
 <div align="center">
 
